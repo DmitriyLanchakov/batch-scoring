@@ -73,7 +73,8 @@ class RunContext(object):
             is_resume = None
             if resume:
                 is_resume = True
-            if is_resume is None:
+            # Ask if resume option wasn't specified
+            if is_resume is None and resume is None:
                 is_resume = ui.prompt_yesno('Existing run found. Resume')
         else:
             is_resume = False
