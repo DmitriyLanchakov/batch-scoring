@@ -91,7 +91,7 @@ Additional recommended arguments:
 
 Additional optional arguments:
 
-``[--out=<filepath>] [--api_version=<api_version>] [--pred_name=<string>] [--timeout=<timeout>] [—-create_api_token]  [--n_retry=<n_retry>] [--delimiter=<delimiter>]  [--resume]  [--skip_row_id]  [--output_delimiter=<delimiter>]``
+``[--out=<filepath>] [--api_version=<api_version>] [--pred_name=<string>] [--timeout=<timeout>] [—-create_api_token]  [--n_retry=<n_retry>] [--delimiter=<delimiter>]  [--resume=<resume>]  [--skip_row_id]  [--output_delimiter=<delimiter>]``
 
 Argument descriptions:
 The following table describes each of the arguments:
@@ -120,7 +120,7 @@ The following table describes each of the arguments:
  output_delimiter=<delimiter>     \+         \+     Specifies the delimiter for the output CSV file. The special keyword "tab" can be used to indicate a tab-delimited CSV.
  timeout=<timeout>                \+         \+     The time, in seconds, that DataRobot tries to make a connection to satisfy a prediction request. When the timeout expires, the client (the batch_scoring or batch_scoring_sse command) closes the connection and retries, up to the number of times defined by the value of ``<n_retry>``. The default value is 30 seconds.
  delimiter=<delimiter>            \+         \+     Specifies the delimiter to recognize in the input .csv file (e.g., "--delimiter=,"). If not specified, the script tries to automatically determine the delimiter. The special keyword "tab" can be used to indicate a tab-delimited CSV.
- resume                           \+         \+     Starts the prediction from the point at which it was halted. If the prediction stopped, for example due to error or network connection issue, you can run the same command with all the same arguments plus this ``resume`` argument. If you do not include this argument, and the script detects a previous script was interrupted mid-execution, DataRobot prompts whether to resume. When resuming a script, you cannot change the ``dataset_filepath``,  ``model_id``, ``project_id``, ``n_samples``, or ``keep_cols``.
+ resume=<resume>                  \+         \+     Starts the prediction from the point at which it was halted. If the prediction stopped, for example due to error or network connection issue, you can run the same command with all the same arguments plus this ``--resume yes`` option. If you do not include this option, and the script detects a previous script was interrupted mid-execution, DataRobot prompts whether to resume. Put ``--resume no`` if you want to start over without being questioned. When resuming a script, you cannot change the ``dataset_filepath``,  ``model_id``, ``project_id``, ``n_samples``, or ``keep_cols``.
  help                             \+         \+     Shows usage help for the command.
  fast                             \+         \+     *Experimental*: Enables a faster .csv processor. Note that this method does not support multiline CSV files.
  stdout                           \+         \+     Sends all log messages to stdout. If not specified, the command sends log messages to the ``datarobot_batch_scoring_main.log`` file.
