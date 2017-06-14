@@ -148,8 +148,8 @@ def parse_args(argv, standalone=False):
                          'the same command with all the same '
                          'all arguments plus this resume argument.')
     conn_gr.add_argument('--no-resume', dest='resume', action='store_false',
-                         help='Starts the prediction from scratch disregarding '
-                         'previous run.')
+                         help='Starts the prediction from scratch disregarding'
+                         ' previous run.')
     conn_gr.add_argument('--compress', action='store_true',
                          default=False,
                          help='Compress batch. This can improve throughout '
