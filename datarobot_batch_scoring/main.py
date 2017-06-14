@@ -12,8 +12,7 @@ from datarobot_batch_scoring.writer import ShelveError
 from datarobot_batch_scoring.utils import (UI, get_config_file,
                                            parse_config_file,
                                            verify_objectid,
-                                           parse_host,
-                                           str2bool)
+                                           parse_host)
 
 VERSION_TEMPLATE = '%(prog)s {}'.format(__version__)
 
@@ -140,14 +139,17 @@ def parse_args(argv, standalone=False):
                          'will retry if a request fails. '
                          'A value of -1 specifies an infinite '
                          'number of retries. (default: %(default)r)')
-    conn_gr.add_argument('--resume', const=True, type=str2bool,
-                         default=defaults['resume'], nargs='?',
+    conn_gr.add_argument('--resume', dest='resume', action='store_true',
+                         default=defaults['resume'],
                          help='Starts the prediction from the point at which '
                          'it was halted. '
                          'If the prediction stopped, for example due '
                          'to error or network connection issue, you can run '
                          'the same command with all the same '
                          'all arguments plus this resume argument.')
+    conn_gr.add_argument('--no-resume', dest='resume', action='store_false',
+                         help='Starts the prediction from scratch disregarding '
+                         'previous run.')
     conn_gr.add_argument('--compress', action='store_true',
                          default=False,
                          help='Compress batch. This can improve throughout '

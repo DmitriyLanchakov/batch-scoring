@@ -479,14 +479,14 @@ def test_resume_key(monkeypatch):
                      '56dd9570018e213242dfa93c',
                      '56dd9570018e213242dfa93d',
                      'tests/fixtures/temperatura_predict.csv',
-                     '--resume', 'yes']
+                     '--resume']
 
     main_args_no = ['--host',
                     'http://localhost:53646/api',
                     '56dd9570018e213242dfa93c',
                     '56dd9570018e213242dfa93d',
                     'tests/fixtures/temperatura_predict.csv',
-                    '--resume', 'no']
+                    '--no-resume']
 
     monkeypatch.setattr('datarobot_batch_scoring.main.UI', mock.Mock(spec=UI))
 
