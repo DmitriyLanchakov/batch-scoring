@@ -3,8 +3,10 @@
 
 Enhancements
 ------------
-* Logs now include version and use better language for retries.
+* Logs now include version, retry attempts and whether output file was removed.
 * New argument `no-resume` that allows you to start new batch-scoring run from scratch without being questioned about previous runs.
+
+
 
 1.11.0 (2017 May 30)
 =============
