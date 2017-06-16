@@ -451,7 +451,3 @@ class Worker(object):
 
     def state_name(self, s=None):
         return self.state_names[s or self.state]
-
-
-def str2bool(inp):
-    return inp.lower() in ('y', 'yes', 'true', 't', '1')
